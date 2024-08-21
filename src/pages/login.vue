@@ -1,22 +1,40 @@
 
-<script></script>
+<script setup>
+    import { defineEmits } from 'vue';
+    const emit = defineEmits(['action']);
+
+    const login = () => {
+        let user_mail =  document.getElementById("mail").value;
+        let user_pass =  document.getElementById("pass").value;
+
+        if ( user_mail ==  "test@test" && user_pass ==  "password" ){
+            alert("ok")
+            emit('action','goto_mance');
+        }else {
+            alert("login data wrongs")
+        }
+    }
+
+    const goto_sigin = () => { emit('action','goto_sigin');}
+    const goto_recov = () => { emit('action','goto_recov');}
+</script>
 
 <template>
     <div>
         <img class="logo-ic" alt="" src="./icons/ic_aber.png"/>
         <h1 class="page-title">Login</h1>
-        <form>
+        <form @submit.prevent="login">
             <label class="input-form">
                 <span>Email</span>
-                <input type="email" placeholder="type your email"/>
+                <input type="email" placeholder="type your email" id="mail"/>
             </label>
             <label class="input-form">
                 <span>Password</span>
-                <input type="password" placeholder="type a password"/>
+                <input type="password" placeholder="type a password" id="pass"/>
             </label>
-            <a hre="" class="recovery-link">Recovery password</a>
+            <p class="recovery-link" @click="goto_recov">Recovery password</p>
             <button class="bnt-submit">Login</button>
-            <p class="new-account-link">Dont have an accounter?, <a href='' class="new-ac-link">sing up here</a></p>
+            <p class="new-account-link">Dont have an accounter?, <p class="new-ac-link" @click="goto_sigin">sing up here</p></p>
         </form>
     </div>
     <footer>
@@ -59,5 +77,4 @@
             }
             .input-form input[type='password'] { background: url('./icons/ic_pass.svg') 95% 50% / 5% no-repeat;}
             .input-form input[type='email']{ background: url('./icons/ic_emil.svg') 95% 50% / 5% no-repeat;}
-
 </style>
