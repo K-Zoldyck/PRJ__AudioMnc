@@ -8,7 +8,6 @@
         let user_pass =  document.getElementById("pass").value;
 
         if ( user_mail ==  "test@test" && user_pass ==  "password" ){
-            alert("ok")
             emit('action','goto_mance');
         }else {
             alert("login data wrongs")
@@ -43,7 +42,11 @@
 </template>
 
 <style scoped>
-    .logo-ic{
+
+    p {
+        cursor: pointer;
+    }
+    .logo-ic {
         display: block;
         width: 20%;
         margin: 10% auto 4% auto;
