@@ -1,9 +1,13 @@
 
 @import './base.css';
 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 #app {
-  /* max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal; */
+    width: min(400px, 95%);
+    margin: 0 auto;
 }
